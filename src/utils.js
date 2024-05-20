@@ -1,7 +1,6 @@
 const fs = require('fs');
 const fse = require('fs-extra');
 const process = require('process');
-const figlet = require('figlet');
 const chalk = require('chalk');
 const constants = require('./constants');
 const CONFIG_FILE = constants.files.configFile;
@@ -18,7 +17,15 @@ let isNeutralinojsProject = () => {
 }
 
 let getFiglet = () => {
-    return figlet.textSync('Neutralinojs');
+    const neutralinoText = 
+ `  _   _            _             _ _             _
+ | \\ | | ___ _   _| |_ _ __ __ _| (_)_ __   ___ (_)___
+ |  \\| |/ _ \\ | | | __| '__/ _' | | | '_ \\ / _ \\| / __|
+ | |\\  |  __/ |_| | |_| | | (_| | | | | | | (_) | \\__ \\
+ |_| \\_|\\___|\\__,_|\\__|_|  \\__,_|_|_|_| |_|\\___// |___/
+                                               |__/`;
+
+    return neutralinoText;
 }
 
 let showArt = () => {
@@ -78,6 +85,13 @@ let getVersionTag = (version) => {
     return version != 'nightly' ? 'v' + version : version;
 }
 
+let filterFiles = (src, pattern) => {
+    if(!Array.isArray(pattern)) pattern = [pattern];
+    const regex = new RegExp(pattern.join('|'));
+    const found = src.match(regex);
+    return !found;
+}
+
 module.exports = {
     error,
     isNeutralinojsProject,
@@ -89,5 +103,6 @@ module.exports = {
     warn,
     trimPath,
     getVersionTag,
-    clearDirectory
+    clearDirectory,
+    filterFiles
 }
