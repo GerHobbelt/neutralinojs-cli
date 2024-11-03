@@ -12,12 +12,14 @@ rename `Unreleased` topic with the new version tag. Finally, create a new `Unrel
 - Let app developers customize the frontend library development server wait time using the `cli.frontendLibrary.waitTimeout` configuration property.
 
 ## Core: Version
-- The `neu version` command now compares the installed CLI version with the latest released version using the `npm view` command and displays a warning messages if the users has an older version.
+- The `neu version` command now compares the installed CLI version and the framework version with the latest released versions and displays a warning messages if the users use an older versions.
+- The `neu version` command now displays the `(latest)` tag with CLI, binary, client library version details.
 
 ### Bugfixes/improvements
 - Check and validate `neutralino.config.json` file before executing app-specific commands.
-- Check app template validity before downloading content from a specific GitHub repository using the officialGitHub API.
+- Check app template validity before downloading content from a specific GitHub repository using the official GitHub API.
 - Add the app icon to the final app bundle only the specific project uses an app icon.
+- Fix the port waiting timeout issue with frontend library-based development workflow. 
 
 ## v11.1.0
 
