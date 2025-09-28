@@ -6,6 +6,11 @@ rename `Unreleased` topic with the new version tag. Finally, create a new `Unrel
 
 ## Unreleased
 
+## v11.6.0
+
+### Core: Bundler
+- Implement embedding resources to make a single-file-app via the `--embed-resources` option in the `neu build` command.
+
 ## v11.5.0
 
 ### Core: Creator
